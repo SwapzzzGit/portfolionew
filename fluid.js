@@ -15,35 +15,27 @@ e.addEventListener("mousemove",function(e){
     a[0].x=e.offsetX,a[0].y=e.offsetY,
     a[0].down=!0,a[0].color=L()
 }),
-// Assuming 'a' and 'L()' are defined elsewhere in your code
 
-// Function to handle mouse and touch move events
-function handleMove(e) {
-    // Prevent default behavior to avoid any unwanted interactions
-    e.preventDefault();
-
-    // Check if it's a touch event or a mouse event
-    const event = e.type === 'touchmove' ? e.touches[0] : e;
-
-    // Update the properties of your object ('a[0]' in this case)
-    a[0].moved = a[0].down;
-    a[0].dx = 5 * (event.clientX - a[0].x);
-    a[0].dy = 5 * (event.clientY - a[0].y);
-    a[0].x = event.clientX;
-    a[0].y = event.clientY;
-    a[0].down = true;
-    a[0].color = L();
-}
-
-// Add event listeners for both mouse and touch events
-document.addEventListener("mousemove", handleMove);
-document.addEventListener("touchmove", handleMove, { passive: false });
+e.addEventListener("touchmove",function(e){
+    a[0].moved=a[0].down,a[0].dx=5*(e.offsetX-a[0].x),
+    a[0].dy=5*(e.offsetY-a[0].y),
+    a[0].x=e.offsetX,a[0].y=e.offsetY,
+    a[0].down=!0,a[0].color=L()
+}),
 
 e.addEventListener("mousedown",function(){
     a[0].down=!0,a[0].color=L()
 }),
 
+e.addEventListener("touchstart",function(){
+    a[0].down=!0,a[0].color=L()
+}),
+
 window.addEventListener("mouseup",function(){
+    a[0].down=!1
+}),
+
+window.addEventListener("touchend",function(){
     a[0].down=!1
 }),
 

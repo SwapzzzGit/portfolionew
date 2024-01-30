@@ -1,16 +1,15 @@
 const canvas = document.getElementById('renderSurface');
 let myFluid = new Fluid(canvas);
 
-myFluid.mapBehaviors({
-  pressure:.8,
-  
-})
-
 myFluid.activate();
 
 // Calling functions
-//locomotive();
+// locomotive();
 menuAnimation();
+
+
+
+
 
 // Improtant functions
 // function for locomotive
@@ -55,14 +54,14 @@ function menuAnimation() {
   let count = 1;
   menu.onclick = () => {
     menuAnimation();
-  }
+  } 
+  console.log("hello")
 
   navLinks.forEach((navLink) => {
     navLink.onclick = () => {
       menuAnimation();
     }
   })
-
   function menuAnimation() {
     if (count) {
       gsap.to(menu, {
@@ -112,12 +111,3 @@ function menuAnimation() {
     }
   }
 }
-
-document.querySelectorAll("#full-scr-nav a").forEach(function (link) {
-  link.addEventListener("click", function () {
-    // Set fullScreenNav to -100% when a link is clicked
-    fullScreenNav.style.left = "-100%";
-    isOpen = false;
-    document.querySelector("#menu").classList.remove("openmenu");
-  });
-});
